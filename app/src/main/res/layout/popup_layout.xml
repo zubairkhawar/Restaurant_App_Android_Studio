@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Restaurant Name -->
     <TextView
         android:id="@+id/popupTextViewName"
         android:layout_width="match_parent"
@@ -14,28 +13,24 @@
         android:textStyle="bold"
         android:paddingBottom="8dp"/>
 
-    <!-- Restaurant Location -->
     <TextView
         android:id="@+id/popupTextViewLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="8dp"/>
 
-    <!-- Restaurant Phone -->
     <TextView
         android:id="@+id/popupTextViewPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="8dp"/>
 
-    <!-- Restaurant Description -->
     <TextView
         android:id="@+id/popupTextViewDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="8dp"/>
 
-    <!-- Restaurant Ratings -->
     <TextView
         android:id="@+id/popupTextViewRatings"
         android:layout_width="wrap_content"
@@ -43,7 +38,6 @@
         android:text="Ratings: *****"
         android:textStyle="bold"/>
 
-    <!-- Close Button -->
     <ImageView
         android:id="@+id/imageViewClose"
         android:layout_width="wrap_content"

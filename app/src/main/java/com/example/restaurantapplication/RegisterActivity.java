@@ -1,5 +1,6 @@
 package com.example.restaurantapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -24,25 +25,22 @@ public class RegisterActivity extends AppCompatActivity {
         editTextDescription = findViewById(R.id.editTextDescription);
         buttonSubmit = findViewById(R.id.buttonSubmit);
 
-        // Initialize your restaurant list
         restaurantList = new ArrayList<>();
+
+        Intent intent = getIntent();
+        final int imageResourceId = intent.getIntExtra("imageResourceId", 0);
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get data from EditText fields
                 String name = editTextName.getText().toString().trim();
                 String location = editTextLocation.getText().toString().trim();
                 String phone = editTextPhone.getText().toString().trim();
                 String description = editTextDescription.getText().toString().trim();
 
-                // Create a new restaurant object and add it to the list
-                Restaurant restaurant = new Restaurant(name, location, phone, description);
+                Restaurant restaurant = new Restaurant(name, location, phone, description, imageResourceId);
                 restaurantList.add(restaurant);
 
-                // Optionally, you can save the restaurant data to a database here
-
-                // Finish this activity to go back to the main activity
                 finish();
             }
         });

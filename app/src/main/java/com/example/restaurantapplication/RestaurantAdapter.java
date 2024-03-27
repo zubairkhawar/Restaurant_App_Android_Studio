@@ -17,7 +17,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     private ArrayList<Restaurant> restaurantList;
     private Context context;
-    private final static int FADE_DURATION = 1000; // in milliseconds
+    private final static int FADE_DURATION = 400;
     private AlertDialog alertDialog;
 
     public RestaurantAdapter(Context context, ArrayList<Restaurant> restaurantList) {
@@ -38,11 +38,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         holder.bind(restaurant);
         setFadeAnimation(holder.itemView);
 
-        // Set click listener for the card
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Display popup with restaurant details
                 showPopup(restaurant);
             }
         });
@@ -60,10 +58,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     }
 
     private void showPopup(Restaurant restaurant) {
-        // Create a custom popup layout
-        View popupView = LayoutInflater.from(context).inflate(R.layout.popup_layout, null);
 
-        // Set restaurant details in the popup layout
+        View popupView = LayoutInflater.from(context).inflate(R.layout.popup_layout, null);
         TextView textViewName = popupView.findViewById(R.id.popupTextViewName);
         textViewName.setText(restaurant.getName());
 
@@ -76,12 +72,11 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         TextView textViewDescription = popupView.findViewById(R.id.popupTextViewDescription);
         textViewDescription.setText(restaurant.getDescription());
 
-        // Close button functionality
         ImageView imageViewClose = popupView.findViewById(R.id.imageViewClose);
         imageViewClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertDialog.dismiss(); // Dismiss the popup
+                alertDialog.dismiss();
             }
         });
 
@@ -109,9 +104,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         public void bind(Restaurant restaurant) {
             textViewName.setText(restaurant.getName());
             textViewLocation.setText(restaurant.getLocation());
-            // Set restaurant image here using Picasso or Glide library
-            // Example: Picasso.get().load(restaurant.getImageUrl()).into(imageViewRestaurant);
-            // Or: Glide.with(context).load(restaurant.getImageUrl()).into(imageViewRestaurant);
+            imageViewRestaurant.setImageResource(restaurant.getImageResourceId());
         }
     }
 }
